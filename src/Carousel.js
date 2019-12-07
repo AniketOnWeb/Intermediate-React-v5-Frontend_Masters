@@ -6,6 +6,13 @@ class Carousel extends React.Component {
     active: 0
   };
 
+  //we can set correct context for "this" in this way
+  //   constructor(props) {
+  //     super(props);
+
+  //     this.handleIndexClick = this.handleIndexClick.bind(this);
+  //   }
+
   static getDerivedStateFromProps({ media }) {
     let photos = ["http://placecorgi.com/600/600"];
 
@@ -15,6 +22,13 @@ class Carousel extends React.Component {
 
     return photos;
   }
+
+  handleIndexClick = event => {
+    //we use arrow fn here so that fn does not set its own context for "this"
+    this.setState({
+      active: +event.target.dataset.index
+    });
+  };
 
   render() {
     const { photos, active } = this.state;

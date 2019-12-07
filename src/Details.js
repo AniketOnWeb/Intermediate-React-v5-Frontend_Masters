@@ -16,6 +16,7 @@ class Details extends React.Component {
       .animal(this.props.id)
       .then(({ animal }) => {
         this.setState({
+          //this will have correct context
           name: animal.name,
           animal: animal.type,
           location: `${animal.contact.address.city}, ${animal.contact.address.state}`,
@@ -30,6 +31,7 @@ class Details extends React.Component {
 
   render() {
     if (this.state.loading) {
+      //this will have correct context
       return <h1>Loading...</h1>;
     }
 
