@@ -6,7 +6,13 @@ import Details from "./Details";
 import ThemeContext from "./ThemeContext";
 
 export const App = () => {
-  const themeHook = useState("darkBlue");
+  const themeHook = useState("peru");
+  console.log(themeHook[0]);
+  //OR
+  // const themeHook = useState({
+  //   buttonLight: "peru",
+  //   buttonDark: "lightblue"
+  // });
 
   return (
     <React.StrictMode>

@@ -12,7 +12,7 @@ const SearchParams = () => {
   const [pets, setPets] = useState([]);
 
   //context hooks
-  const [theme] = useContext(ThemeContext);
+  const [theme, setTheme] = useContext(ThemeContext);
 
   async function requestPets() {
     const { animals } = await pet.animals({
@@ -55,6 +55,20 @@ const SearchParams = () => {
 
         <AnimalDropown />
         <BreedDropDown />
+
+        <label>
+          Theme
+          <select
+            value={theme}
+            onChange={e => setTheme(e.target.value)}
+            onBlur={e => setTheme(e.target.value)}
+          >
+            <option value="peru">Peru</option>
+            <option value="darkBlue">Dark Blue</option>
+            <option value="mediumOrchid">Medium Orchid</option>
+            <option value="chartreuse">Chart Reuse</option>
+          </select>
+        </label>
         <button style={{ backgroundColor: theme }}>submit</button>
       </form>
       <Results pets={pets} />
